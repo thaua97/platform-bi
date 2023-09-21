@@ -1,0 +1,24 @@
+.input  {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0 10px;
+  height: 42px;
+  border-radius: 4px;
+  background: $white-100;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: box-shadow .2s ease;
+  color: $primary;
+
+  &::placeholder {
+    color: $primary;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 20px 0px rgba(213, 1, 255, 0.09);
+  }
+
+
+}
