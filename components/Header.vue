@@ -2,50 +2,14 @@
  <header class="header w-full flex justify-space">
   <IconLogo class="header__logo"/>
   <div class="header__profile flex items-center gap-x-1.5">
-    <h3 class="header__name">{{ name }}</h3>
+    <h3 class="header__name">Joeh Doe</h3>
     <img 
       class="header__avatar" 
-      :src="user.avatar" 
+      src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
       alt="avatar">
   </div>
  </header>
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted, computed } from 'vue';
-
-interface User {
-  id: number,
-  email: string,
-  first_name: string,
-  last_name: string,
-  avatar: string,
-}
-
-const user: User = reactive({
-  id: 0,
-  email: '',
-  first_name: '',
-  last_name: '',
-  avatar: '',
-});
-
-const name = computed(() => {
-  return `${user.first_name} ${user.last_name}`
-})
-onMounted(async () => {
-  await getUser();
-});
-
-const getUser = async () => {
-  const res = await fetch(`https://reqres.in/api/users/1`)
-  const json = await res.json();
-
- user.id = json.data.id;
- user.first_name = json.data.first_name;
- user.last_name = json.data.last_name;
- user.avatar = json.data.avatar;
- user.email = json.data.email;
-}
-
 </script>

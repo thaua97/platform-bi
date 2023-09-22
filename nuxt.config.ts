@@ -12,6 +12,18 @@ export default defineNuxtConfig({
     { path: '~/shared/icons', prefix: 'Icon' },
     '~/components',
   ],
+  modules: [
+    '@pinia/nuxt',
+  ],
+  build: {
+    transpile: ['rxjs']
+  },
+  pinia: {
+    autoImports: [
+      'defineStore',
+      ['defineStore', 'definePiniaStore'],
+    ],
+  },
   vite: {
     css: {
       preprocessorOptions: {
